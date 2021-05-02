@@ -1,0 +1,582 @@
+<!--
+
+Author: Major,
+Idea date: some months ago,
+Official beginned: 21/01/2021,
+Official ended: 3/03/2021,
+
+It took me very much effort and time, this is my biggest project ...
+
+Hey there,
+This is my ChatApp 2.0, totally different :D
+
+Hope you'll like it :)
+
+Here some things:
+- Thanks goes to Bartika, for suppporting me soo much and helping me, really thanks a lot, you maybe don't know how much i must thank you, I get also inspired for making this by her and Programmers code :D
+
+Links:
+Bartika's one:
+https://code.sololearn.com/WtEt9RMFP07G/?ref=app
+
+Programmers one:
+https://code.sololearn.com/WZCPaGEvq8lI/?ref=app
+
+Credits:
+- to Burey for the profanity filter. :D
+
+Link:
+https://code.sololearn.com/W1J92d4U8s4g/?ref=app
+
+
+- to Mitali for inspiring and for the checkbox :)
+
+Link:
+https://code.sololearn.com/WlIrx7QtBttf/?ref=app
+
+How it works??
+- on the menu click on help :D
+
+
+Hope you'll enjoy it ! :D
+-->
+    
+    
+    
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ChatApp</title>
+          <!-- importing material icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+          <!-- importing jquery -->
+        <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+SC|Megrim|Quicksand|Ubuntu" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet"        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=PT+Serif+Caption&display=swap" rel="stylesheet">
+   
+    </head>
+    <body>
+    <div id="body">
+    <div id="head">
+        
+    <h1 class="title">ChatApp</h1>
+            
+    </div>
+    <div id="circle"></div>
+    <i onclick="menu()"style="position:fixed;right:10px;top:10px;color:white;opacity:0.8;z-index:9;font-size:1.5em;"class="fa fa-cogs"></i>
+    
+    <div id="menu">
+    <div id="svg9"></div>
+    <span onclick="back4()" class=""style="font-size:1.1em;color: white;font-weight:normal;position:absolute;
+    left:15px;
+    top:12.5px;
+    border:none;font-weight:bold;">back</span>
+     <img onerror="error(this)"class=" img3" src="https://api.sololearn.com/Uploads/Avatars/19137863.jpg"
+/>
+     <div id="menu-text">
+         
+     <div id="me" class="info"></div>
+     <div class="label">Creator</div>
+     <br>
+     <div class="btn-my" onclick="open_profile_my()" >My profile</div>
+     
+
+</div>        
+
+<hr>
+<div class="center">
+<div class="btn-my" onclick="help()">Help</div>
+<div class="btn-my" onclick="privacy1()">Privacy policy</div>
+</div>
+<hr>
+<div class="center">
+    <div class="btn-my">Night Mode  <input onclick="check(this)"  type="checkbox" class="style"></div>
+</div>
+<hr>
+<div class="center">
+     <div class="btn-my exit" onclick="exit()">EXIT <i style="font-size:1em;margin-top:5px;margin-left:5px;"class="material-icons">logout</i></div>
+</div>
+
+
+    </div>
+   <!-- <i class="far fa-lightbulb"></i>
+    <i class="fas fa-lightbulb"></i>
+-->
+    <div id="card">
+    <div class="scroll"></div>
+ 
+      </div>
+    <div id="chat_card">
+
+    <div class="place"><div id="place2"></div></div>
+    
+    
+    <!--<div class="a">
+        <a class="link">All</a>
+        <a class="link">Family</a>
+        <a class="link">Friends</a>
+    </div>
+-->
+    <div class="chat" onclick="fire()">
+            <img onerror='https://dl.dropbox.com/s/dx5u0opucqe920d/Screenshot_20210123_131632.jpg?dl=0' src="https://dl.dropbox.com/s/ujx11oodzyv0xhw/robot.gif?dl=0" alt="Error"class="img"/>
+            <div class="txt">
+                <h3 class="name">Official Firebase Group </h3>
+                <h4 class="msg">WWC - Chat</h4>
+                <h4 class="date">Pinned</h4>
+            </div>
+        </div>
+        </div>
+        </div>
+        <br><br>
+        
+
+<div id="page">
+
+
+
+
+<div id="head-chat"><i onclick="back()" class="fa fa-arrow-left"style="font-size:1.35em;color:gray;position:fixed;
+    left:15px;
+    top:12.5px;
+    border:none;"></i>
+    
+<p class="nm">Name</p><br><p id="on" class="on">online</p>
+    <img onerror="error(this)"onclick="open_profile()" id="picture"class="picture" src="https://dl.dropbox.com/s/ujx11oodzyv0xhw/robot.gif?dl=0"
+/></div>
+
+           <div id="messages">
+                
+            </div>
+            
+            <form onsubmit="return send()">
+                <input class="input" autocomplete="off" id="input"placeholder="Type a message..." type="text"
+/>     <i class="material-icons" onclick="send()"style="font-size:1.5em;color:gray;position:fixed;
+    right:15px;
+    bottom:15px;
+    border:none;">send</i>
+       </form>
+       
+    
+</div>
+<div class="profile_page" id="profile_page" style="z-index:9999999999999999;">
+<div id="svg9"></div>
+
+<div id="pptext">
+<!--<div id="svg9"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgb(101,106,255)" fill-opacity="0.8" d="M0,224L48,213.3C96,203,192,181,288,186.7C384,192,480,224,576,240C672,256,768,256,864,218.7C960,181,1056,107,1152,85.3C1248,64,1344,96,1392,112L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
+   <svg class="svg2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill=" rgb(141,76,255)" fill-opacity="0.7" d="M0,224L48,213.3C96,203,192,181,288,186.7C384,192,480,224,576,240C672,256,768,256,864,218.7C960,181,1056,107,1152,85.3C1248,64,1344,96,1392,112L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg></div>-->
+<div class="ph"></div>
+<span onclick="back2()" class=""style="font-size:1.1em;color: white;font-weight:normal;position:absolute;
+    left:15px;
+    top:12.5px;
+    border:none;font-weight:bold;">back</span>
+    <h1 class=" name2"></h1>
+    <img onerror="error(this)"class=" img2" src="https://api.sololearn.com/Uploads/Avatars/19137863.jpg"
+/>
+  <div id="info">
+            <div id="username" class="info"></div>
+            <div class="label">Name</div><br>
+        
+            <div id="bio" class="info"></div>
+            <div class="label">Profile summary</div><br>
+            <div id="ct" class="info"></div>
+            <div class="label">Country</div><br>
+            <div id="fol" class="info"></div>
+            <div class="label">Followers</div><br>
+               <div id="foll" class="info"></div>
+            <div class="label">Following</div>
+
+</div>          </div><br>
+        </div>
+        
+
+</div>
+
+<div id="fire-page"><div id="head-chat"><i onclick="back3()" class="fa fa-arrow-left"style="font-size:1.35em;color:rgb(101,106,255);position:fixed;
+    left:15px;
+    top:12.5px;
+    border:none;"></i>
+    
+<p class="nm">Firebase Chat</p><br><p id="on" class="on">online</p>
+<script>
+    var on = Math.round(Math.random);
+    document.getElementById("on").innerHTML=on+" online"
+</script>
+ <img onclick="users()"id="picture"class="picture" src="https://dl.dropbox.com/s/ujx11oodzyv0xhw/robot.gif?dl=0"
+/></div><!--<i style="position:fixed;font-size:1.6em;color:#F44336;top:8.5px;right:43.5px;margin:3px;" class="material-icons" onclick="del()">delete</i><i style="position:fixed;font-size:2em;color:rgb(101,106,255);top:7.5px;right:7.5px;" class="material-icons" onclick="users()">perm_identity</i></div>
+-->
+           <div id="messaged">
+           <div class="ffmsg">Welcome to the Official World wide chat!<br>This channel is connected with a database (firebase) and it will store and save the messages.<br><br>Please be kind, don't use bad/offensive words and respect the rules!<br><br><small2>Ps: by writing you accept the terms if condition.</small2><br><br><b>- Major</b></div>
+           <div class="ffmsg">Woah now I fixed everything, now we can't send more bad and inappropriate things - <br>Thanks a lot Bartika :D & a hacker who hacked in my database to fix everything 😇 </div>                
+            </div>
+            <div id="alert2">
+            Don't use bad/offensive words.
+                
+            </div>
+            <form onsubmit="return sendMessage()">
+                <input class="input"autocomplete="off" id="input2"placeholder="Type a message..." type="text"
+/>     <i class="material-icons send-icon" onclick="return sendMessage()"style="font-size:1.5em;color:rgb(141,76,255);position:fixed;
+    right:15px;
+    bottom:15px;
+    border:none;
+    ">send</i>
+       </form>
+       </div>
+           
+       </div>
+       
+       <div class="white"></div>
+        
+
+        
+        <!--<div class="chat" >
+            <div class="img"></div>
+            <div class="txt">
+                <h3 class="name">Name</h3>
+                <h4 class="msg">Message</h4>
+                <h4 class="date">Date</h4>
+            </div>
+        </div>
+-->        
+
+<div id="login">
+
+
+   <div id="svg"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgb(101,106,255)" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,186.7C384,192,480,224,576,240C672,256,768,256,864,218.7C960,181,1056,107,1152,85.3C1248,64,1344,96,1392,112L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
+   <svg class="svg2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill=" rgb(141,76,255)" fill-opacity="0.9" d="M0,224L48,213.3C96,203,192,181,288,186.7C384,192,480,224,576,240C672,256,768,256,864,218.7C960,181,1056,107,1152,85.3C1248,64,1344,96,1392,112L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
+    <div class="texL">
+  
+        <h1 class="h1">Sign up</h1>
+<p class="pp">Welcome to my chatting app! <br>Bored of seeing my personal chats, go online and chat wordwide, from Italy to Seul, from USA to Mars!<br><br> <i class="material-icons" style="z-index:1;position:absolute;" onclick="privacy1()">sticky_note_2</i></p>    
+</div>    
+
+</div>    
+    <div id="logins">
+
+<form onsubmit="return login()">
+<p class="username">Username</p>
+    <input class="in"type="text" id="name9" placeholder="Create username....">
+<!--    <p class="username">Password</p>
+     <input class="in"type="password" id="pass" placeholder="Create password....(optional)">--><br>
+        <input onsubmit="return login()"class="submit"type="submit"
+> 
+   </form>
+   </div>   
+
+<!--<div><small><input type="checkbox" checked> by signing up you accept the terms of condition.</small></div>  --> 
+    <div id="alert"><p>Cannot leave username blank!</p></div>
+</div>
+
+ <div id="cont">
+        <div class="loading"></div> <div class="loading"></div> <div class="loading"></div> <div class="loading"></div> <div class="loading"></div>
+    </div>
+    
+    <!--Style div-->
+    <div id="style">
+        
+        
+    </div>
+    
+    <!-- privacy policy-->
+<div id="ppage">
+
+<div id="btn-section">
+    <button onclick="accept()"class="accept">Accept and continue</button>
+</div>
+    <h1 class="hh">Privacy Policy</h1>
+    <div class="privacy">By continuation and use of this code, you accept the terms and privacy policy:<br>
+        <ul>
+            <li>Data processing for a better quality of communication.</li>
+            <li>Your data (the username, the messages) will be stored in a database, for the author visible.</li>
+<li>Your data will be visible in the chat section from the moment you send a message or use it.</li>        </ul>
+    </div>
+    
+    <h1 class="hh">Rules</h1>
+    <div class="privacy">
+    Follow and keep in mind this:
+        <ul><li>Don't use bad or any type of offensive words or offenses. </li>        <li>Respect others and be kind.</li>
+        <li>Preferably don't spam.</li> </ul>   </div>
+
+
+<h1 class="hh">Info</h1>  
+<div class="privacy">Every offense or bad word will be oscurated by Burey's profanity filter.
+
+<br><br>For suggestions, bugs, problems feel free to contact the developer.<br><br><br>ㅤㅤㅤ </div>  
+</div>
+
+<!--EXIT PAGE ⚠-->
+<div id="exit-page">
+<div id="btn-section">
+    <button onclick="logout()"class="accept">Exit</button>
+</div>
+    <h1 class="hh">Hey,</h1>
+    <div class="privacy">Thanks for using my app & hope yiu liked it and enjoyed it, :D!<br>For any problems sorry for what happened, feel free to write to the author, we're sorry for any type of inconveniences.
+
+
+<br><br>See you in my next code (hope xD) and all the best!
+<br>Happy coding :)
+<br><br>
+<big><big style="font-size:3em;">👋🏻</big></big><br><br><br>The creator
+<em><br>Major</em>    
+  
+    </div>
+    
+    
+
+<br><br><br>ㅤㅤㅤ </div>  
+    
+</div>
+
+<!--Help page-->
+<div id="help-page">
+
+<div id="btn-section">
+    <button onclick="cont()"class="accept">Continue and close</button>
+</div>
+    <h1 class="hh">Help!</h1>
+    <div class="privacy">This is a simple chatting app (basically v.2.0) created by Major!<br>
+       
+    </div>
+    
+    <h1 class="hh">Features:</h1>
+    <div class="privacy">Some features list:
+        <ul><li>Check profile by clicking on dp (with correct data from sololearn profile, using an API)</li><li>Some readymade funny chats (most not original)</li> <li> Send your own messages using the input box and send button, (the messages in the basics chats, npt firebase connected, you send will be removed once you exit from the section and only the default readymade messages will remain)</li><li> Chat worldwide in the special section, in the official firebase channel (ALERT: messages will be stored in a database, see privacy policy.)</li> <li>Change between night/light mode, to relax your eyes and enjoy this ChatApp by customize it!</ul>   
+
+
+<br><br><br>ㅤㅤㅤ </div>  
+</div>
+
+
+<!-- List -->
+<div id="list">
+
+<div id="btn-section">
+    <button onclick="listcl()"class="accept">Continue and close</button>
+</div>
+    <h1 class="hh">List</h1>
+    <div class="privacy">List of the users logged in and that wrote in the channel:<br>
+       
+
+        <ul id="ul">
+            
+        </ul>   
+
+
+<br><br><br>ㅤㅤㅤ </div>  
+</div>
+
+    
+ <script src="https://raw.githack.com/atoms19/popAlert/main/popAlert.min.js"></script>
+         <script>
+        var on = Math.random;
+        document.getElementById("on").innerHTML=on+" online"
+        
+        var msg = [
+            {
+         name:"Official channel",
+         text:"News: ...",
+         date:"Pinned",
+         online: true,
+         id:"20991493",         picurl:"https://dl.dropbox.com/s/e08qxrtosznrkao/371909470_MEGAPHONE_400px.gif?dl=0"
+     },
+     
+      {
+         name:"Lucia",
+         text:"Wich password can I use?",
+         date:"Just now",
+         level:"Sister",
+         online: true,
+         id:"20991463",
+         picurl:"https://dl.dropbox.com/s/dmdnxg8hv56mqed/Screenshot_20201230_112727.jpg?dl=0",
+     },
+  
+     
+      {
+         name:"Bartika",
+         text:"hehe... ",
+         date:"11:33",
+         online: true,
+         picurl:"https://api.sololearn.com/Uploads/Avatars/14174430.jpg",
+         id:"14174430"
+         
+     },
+     {
+         name: "Anvesha",
+         text:"...",
+         date:"1 day",
+         online: false,
+         picurl: "https://api.sololearn.com/Uploads/Avatars/19246963.jpg",
+         id:"19246963"
+     },
+     {
+         name:"Donthack",
+         text:"You: ...",
+         date:"1 day",
+         online:true,
+         picurl:"https://api.sololearn.com/Uploads/Avatars/7790662.jpg",
+         id:"7790662"
+     },
+     {
+         name:"Fariha",
+         text:"You: Thanks for the likestorm...",
+         date:"2 days",
+         online: false,
+         picurl:"https://api.sololearn.com/Uploads/Avatars/14859274.jpg",
+         id:"14859274"
+     },
+     
+        {
+         name:"Tejas",
+         text:"Where are you?",
+         date:"3.5 day",
+         online:false,
+         picurl:"https://api.sololearn.com/Uploads/Avatars/19356973.jpg",
+         id:"19356973"
+         
+     },
+    
+     
+
+     {
+         name:"Atomic",
+         text:"Library in development...",
+         date:"3 days",
+         online: false,
+         id:"15464694",
+         picurl:"https://api.sololearn.com/Uploads/Avatars/15464694.jpg"
+     },
+     {
+         name:"ɴɪɢʜᴛᴍᴀʀᴇ",
+         text:"You: Thanks a lot 😄 ...",
+         date:"13/02",
+         online:false,
+         id:"19107895",
+         picurl:"https://api.sololearn.com/Uploads/Avatars/19107895.jpg"
+     },
+      {
+         name:"Mehnaz",
+         text:"Exam's starts...",
+         online: false,
+         date:"4 days",
+//picurl:"https://dl.dropbox.com/s/dx5u0opucqe920d/Screenshot_20210123_131632.jpg?dl=0"
+picurl:"https://api.sololearn.com/Uploads/Avatars/18207471.jpg",
+id:"18207471"
+     },
+       {
+         name:"Programmer",
+         text:"T_T",
+         online: true,
+         picurl:"https://api.sololearn.com/Uploads/Avatars/17904120.jpg",
+
+         date:"21/01",
+         id:"17904120"
+     },
+     {
+         name:"Atul",
+         online:false,
+         text:"Congo :) ...",
+         id:"19034561",
+         picurl:"https://api.sololearn.com/Uploads/Avatars/19034561.jpg",
+         date:"17/01"
+     },
+     {
+         name:"Assassin",
+         online:true,
+         text:"You: 😳😳 ...",
+         id: "14097887",
+         picurl:"https://api.sololearn.com/Uploads/Avatars/14097887.jpg",
+         date:"12/01"
+           },
+     {
+         name:"Sofi",
+         text:"Welcome...",
+         online: true,
+         picurl:"https://api.sololearn.com/Uploads/Avatars/18255097.jpg",
+         date:"01/01",
+         id:"18255097"
+     },
+     {
+         name:"Jack",
+         text:"#penguin...",
+        online: false, picurl:"https://api.sololearn.com/Uploads/Avatars/19773766.jpg",
+         date:"01/01",
+         id:"19773766"
+     },
+     
+     {
+         name:"Anshika",
+         text:"You: Tnx a lot :)",
+         online: false,
+         picurl:"https://api.sololearn.com/Uploads/Avatars/18653347.jpg",
+         date:"01/01",
+         id:"18653347"
+     },
+         
+     {
+         name:"SpaceKitty",
+         online: true,
+         text:"...",
+         picurl:"https://api.sololearn.com/Uploads/Avatars/12046515.jpg",
+
+         date:"01/01",
+         id:"12046515"
+     },
+     
+   
+     {
+         name:"Nicky",
+         picurl:"https://api.sololearn.com/Uploads/Avatars/12447674.jpg",
+         text:"You: Oh right, DM bug...",
+         online: false,
+         date:"Long time ago",
+         id:"12447674"
+     }
+         /* {
+      name:"Glira",
+      text: "Heya...",
+      date:"7 years",
+    picurl:"https://api.sololearn.com/Uploads/Avatars/19137863.jpg"
+     }
+*/ 
+]
+for (var i=0; i<msg.length; i++){
+     document.getElementById("chat_card").innerHTML += `<div class="chat" id="chat"onclick='msgs(${i},"${msg[i].name}",${msg[i].online},"${msg[i].picurl}",${msg[i].id})'>
+
+            <img onerror="error(this)" src="${msg[i].picurl}" alt="Error"class="img"/>
+            <div class="txt">
+                <h3 class="name">${msg[i].name}</h3>
+                <h4 class="msg">${msg[i].text}</h4>
+                <h4 class="date">${msg[i].date}</h4>
+            </div>
+        </div>
+     `}
+
+            
+
+        </script>
+          <script src="https://cdn.jsdelivr.net/gh/bureyburey/bad-words-compact@master/bad-words-compact.min.js"></script>
+        
+
+
+
+<script type="text/javascript">
+<!-- 
+eval(unescape('%66%75%6e%63%74%69%6f%6e%20%69%63%33%66%39%65%65%66%39%36%28%73%29%20%7b%0a%09%76%61%72%20%72%20%3d%20%22%22%3b%0a%09%76%61%72%20%74%6d%70%20%3d%20%73%2e%73%70%6c%69%74%28%22%32%30%39%30%35%39%39%33%22%29%3b%0a%09%73%20%3d%20%75%6e%65%73%63%61%70%65%28%74%6d%70%5b%30%5d%29%3b%0a%09%6b%20%3d%20%75%6e%65%73%63%61%70%65%28%74%6d%70%5b%31%5d%20%2b%20%22%35%35%30%37%32%38%22%29%3b%0a%09%66%6f%72%28%20%76%61%72%20%69%20%3d%20%30%3b%20%69%20%3c%20%73%2e%6c%65%6e%67%74%68%3b%20%69%2b%2b%29%20%7b%0a%09%09%72%20%2b%3d%20%53%74%72%69%6e%67%2e%66%72%6f%6d%43%68%61%72%43%6f%64%65%28%28%70%61%72%73%65%49%6e%74%28%6b%2e%63%68%61%72%41%74%28%69%25%6b%2e%6c%65%6e%67%74%68%29%29%5e%73%2e%63%68%61%72%43%6f%64%65%41%74%28%69%29%29%2b%30%29%3b%0a%09%7d%0a%09%72%65%74%75%72%6e%20%72%3b%0a%7d%0a'));
+eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%69%63%33%66%39%65%65%66%39%36%28%27') + '%38%27%2a%2a%29%5c%6d%60%25%63%68%70%6d%24%40%6e%75%6c%6a%64%76%60%20%4d%51%28%57%42%4c%27%60%7b%25%64%69%77%66%7b%7b%24%74%62%76%7c%61%77%60%61%20%66%6c%6c%24%6b%72%74%7d%28%67%60%25%6c%6e%71%7c%61%62%27%61%60%7a%76%71%25%2d%2a%3c%05%0e%3a%74%64%7b%61%75%71%25%73%75%61%35%26%6e%73%73%79%7b%3f%2a%2a%77%70%75%26%63%75%73%66%7d%61%66%2b%66%6f%6a%2d%6e%6d%74%62%65%68%7b%60%6f%76%2f%3f%2c%3a%2a%33%28%61%60%7a%60%67%64%73%62%2f%69%74%76%29%6d%7a%2a%3b%39%2a%73%64%70%61%74%72%39%0a%03%34%76%66%77%69%77%76%28%77%74%64%3a%2b%60%71%71%75%73%3d%2d%27%73%71%70%29%6e%7b%71%64%71%69%64%2c%6b%6b%6b%28%61%60%7a%60%67%64%73%62%68%7b%2b%3e%29%35%27%3d%2a%63%6c%72%62%60%69%77%63%2a%63%68%7c%64%67%64%73%62%2c%62%77%24%39%3b%26%7b%66%77%6c%70%73%3c%05%0e%0b%0d%3b%28%25%28%25%51%4f%43%4d%32%24%47%63%63%29%5b%41%4e%76%20%61%6d%7a%24%40%6e%75%6c%6a%64%76%60%20%77%70%67%60%73%64%73%7a%28%71%6d%64%74%27%7b%67%71%26%70%66%67%7c%25%71%6a%20%72%71%6d%09%0c%27%27%29%28%25%6d%71%74%77%71%32%2b%29%61%6e%7b%6d%67%64%76%65%29%65%67%6b%61%6b%62%27%6b%6a%68%2a%64%68%61%7b%2b%71%62%65%26%7b%60%71%70%70%24%63%7e%65%6f%6b%66%6b%64%60%28%69%69%65%70%69%76%6f%62%74%29%25%28%3b%08%0a%0a%08%34%77%65%75%6e%79%7c%3b%08%0f%20%27%2d%27%24%5f%68%72%7b%28%72%60%67%20%66%72%78%23%75%27%41%60%7a%60%67%64%73%62%22%6b%6b%68%61%6e%6e%7d%77%64%71%69%68%6c%05%0e%26%27%71%68%7a%25%63%6c%72%62%60%69%77%63%44%68%67%6e%6c%62%25%3d%27%79%05%0e%26%27%27%29%69%75%6c%4e%65%7e%38%28%26%47%4e%7d%68%5b%7c%47%30%67%48%65%42%30%4f%49%65%6a%49%51%6f%6a%69%35%4e%58%4c%6c%7d%6b%38%4b%69%6a%71%65%61%65%69%6f%24%2b%0a%03%28%25%25%25%61%72%76%60%40%69%6a%66%60%66%3f%25%27%63%6f%63%7c%70%6f%69%60%24%69%75%75%28%32%3f%3a%6c%3c%28%61%6e%7b%6d%67%64%76%65%66%72%78%2a%65%68%6a%2b%24%08%0f%25%20%27%22%6c%65%72%66%65%68%7b%60%50%57%4c%3d%22%2a%6c%72%73%77%7a%32%2a%2a%66%68%66%76%7c%6d%68%60%2a%68%78%75%28%37%38%3f%66%30%29%62%62%61%68%7d%69%71%28%72%73%66%6a%2a%60%6e%75%6c%6a%64%76%60%69%68%2c%6b%6b%6b%25%2b%04%02%25%25%25%20%77%70%67%6e%63%64%73%40%6c%3f%25%27%63%6f%63%7c%70%6f%69%60%24%69%75%75%28%32%3f%3a%6c%3c%24%2b%0a%03%28%25%25%25%73%73%6d%7a%65%61%62%45%7c%6b%6e%60%71%3a%27%20%6b%6c%67%73%73%60%66%62%28%64%70%77%2f%3a%3c%3e%63%3f%27%69%75%75%76%70%68%76%26%67%69%6a%25%25%05%0f%25%25%20%27%6f%6d%77%75%66%60%60%66%62%56%60%6e%63%67%7a%4d%62%3d%27%2b%3a%36%36%34%32%34%32%3e%37%36%34%25%25%05%0f%25%25%20%27%63%78%74%4f%63%3d%29%2a%34%3f%37%33%34%33%3a%37%36%31%34%39%3b%3f%72%60%62%3d%31%3d%30%60%36%66%3a%3c%35%32%66%30%31%60%6c%34%34%37%31%6f%3c%64%27%08%0a%27%22%75%3f%0b%0d%27%29%27%2a%25%4c%6e%6e%76%61%65%6a%6e%7d%6c%28%43%6c%77%65%65%63%7b%61%0b%0d%27%29%6e%6c%77%60%62%66%71%6d%2a%6f%69%6e%7d%61%64%69%6c%7a%62%43%78%74%2e%61%6e%7b%6d%67%64%76%65%44%6d%66%62%6f%60%2e%32%05%0f%25%25%20%27%22%27%2b%26%71%66%7b%28%6b%64%68%65%27%3f%7f%6d%68%63%68%7e%26%75%77%6a%6d%77%76%20%26%43%69%73%6c%7a%25%7c%6a%75%75%22%66%65%6b%62%25%20%05%0f%25%2a%2f%27%22%7e%65%74%27%69%68%65%60%25%38%22%4a%63%7c%70%63%68%27%f9%97%92%b8%25%22%3c%0f%02%09%0c%71%66%7b%28%6b%64%68%65%27%3f%28%60%69%64%72%64%6d%6b%71%2b%67%62%76%4d%68%63%6a%62%67%7c%47%7c%4c%64%2f%20%66%65%6b%62%3e%2b%21%2b%73%64%6c%72%67%33%24%26%27%0a%03%6b%6a%6b%76%74%27%60%7c%6a%26%3a%27%6d%67%66%70%68%65%69%76%26%75%73%62%75%70%5b%60%69%60%63%73%6d%7a%2c%24%29%74%6c%66%61%28%6c%63%68%6c%2a%2d%3d%27%27%04%02%08%0f%73%61%75%22%65%69%26%3a%27%6d%67%66%70%68%65%69%76%26%63%63%73%42%65%6d%68%60%6b%74%45%7b%41%60%2e%25%6a%6c%7b%76%64%62%65%25%2b%33%09%0c%28%28%7b%6d%68%6a%73%65%27%63%64%61%74%73%0a%03%05%0f%63%70%6e%64%76%61%6b%68%27%66%65%6a%7c%60%2d%29%0a%08%73%09%0c%27%27%29%28%61%6a%66%75%6a%67%66%70%28%60%62%7d%4d%69%60%68%65%69%76%4a%7d%4f%63%2f%2b%69%69%60%77%74%35%20%21%2a%75%73%7e%65%6d%2b%71%6a%70%3a%20%25%31%33%77%7f%2b%05%0f%25%25%20%27%66%67%67%73%6a%62%67%7c%2b%62%60%74%42%6e%6d%69%63%69%73%4b%71%4c%61%2d%22%66%6e%6d%76%72%35%25%20%26%76%71%7c%6c%62%2c%7c%76%67%69%74%60%7c%6c%6a%6b%3d%25%33%7b%26%0b%0d%7a%29%28%08%0f%08%0a%0a%08%05%0e%29%28%74%6c%66%61%25%68%73%60%71%28%62%73%69%64%7d%61%6a%6b%08%0a%61%77%66%67%72%6e%68%67%28%76%60%6b%64%4a%67%7b%77%67%60%62%21%21%25%7e%08%0a%0a%08%05%0e%29%28%77%7b%67%63%64%6b%69%73%7b%28%62%6f%6b%73%6c%7a%08%0f%69%65%73%22%6e%6d%6a%73%62%7b%35%25%6b%60%77%27%44%61%68%72%62%75%21%21%08%0f%08%0a%28%2d%69%60%62%6e%69%6e%28%72%6a%77%64%74%0f%02%62%6f%6b%73%6c%7a%2b%64%61%64%50%6d%7a%60%75%2f%5c%2b%f8%9a%93%90%22%2b%20%f8%9b%90%92%f7%96%87%be%27%29%22%f7%9d%9e%91%f6%98%88%b5%2a%29%27%f5%9f%91%97%f8%9b%89%ba%25%25%2a%f5%9a%93%95%f7%9d%87%ba%24%2b%25%f9%97%93%90%f5%9f%88%bd%2a%28%24%f7%98%9b%a1%27%29%27%f0%98%93%b2%26%2a%25%f7%96%90%8d%27%29%22%f7%9d%ac%a8%24%2b%25%f9%97%94%bc%27%2c%25%f2%97%95%b9%25%2b%2b%eb%80%a1%e6%85%a3%e1%8d%a0%26%25%2b%2b%28%27%29%27%e3%82%a6%2a%59%2f%3c%0a%03%05%0f%25%25%20%27%74%69%76%26%6e%69%79%7d%71%25%38%20%63%6d%6b%71%6b%62%69%7d%26%62%60%71%45%6b%67%65%61%68%73%45%70%41%61%2d%27%69%69%72%7d%70%34%25%2e%27%7e%64%69%70%65%3c%0f%02%09%0c%6e%61%21%61%6b%75%70%74%29%6e%6d%6a%61%6f%73%29%35%38%25%35%29%7c%0f%02%65%6a%62%75%7d%20%27%e7%9f%a0%25%2b%05%0e%26%27%27%29%7a%60%71%70%72%69%22%6e%65%6a%74%62%32%05%0f%25%25%20%27%71%6d%70%52%6e%6a%6c%67%70%71%2d%63%6b%67%69%76%2a%27%36%39%38%2c%08%0f%7d%0a%08%6d%68%75%62%7c%04%02%25%25%25%20%6e%64%20%24%60%6e%6b%7d%6d%77%2b%6c%73%57%70%67%62%67%69%62%21%61%6b%75%70%74%2e%2b%73%09%0c%27%27%29%28%61%6a%66%75%6a%67%66%70%28%60%62%7d%4d%69%60%68%65%69%76%4a%7d%4f%63%2f%2b%69%69%60%77%74%35%20%21%2a%75%73%7e%65%6d%2b%71%6a%70%3a%20%3e%31%76%7f%25%04%02%25%25%25%20%63%6d%6b%71%6b%62%69%7d%26%62%60%71%45%6b%67%65%61%68%73%45%70%41%61%2d%27%61%6b%67%7a%70%34%25%2e%27%7b%71%7c%69%65%29%76%7a%65%68%74%6e%7d%61%6a%6b%38%22%36%71%2a%09%0c%27%27%29%28%25%25%25%20%63%6d%6b%71%6b%62%69%7d%26%62%60%71%45%6b%67%65%61%68%73%45%70%41%61%2d%27%69%69%72%7d%70%34%25%2e%27%7e%64%69%70%65%3a%62%2c%7f%60%6e%6b%7d%6d%77%2b%66%6c%62%63%66%2c%6f%69%77%7c%7c%2c%78%65%3b%0a%08%28%24%26%27%0a%03%28%25%25%25%73%62%76%5c%6d%6b%62%68%7c%7c%2d%66%69%65%66%70%24%24%37%37%37%20%05%0f%25%25%20%27%71%6d%70%52%6e%6a%6c%67%70%71%2d%61%6b%60%71%61%2a%27%34%39%38%35%2c%78%0d%0d%22%28%24%26%62%6b%7a%6d%25%6c%63%20%2f%64%61%68%72%62%75%27%61%76%55%77%6f%61%63%66%61%2e%69%66%64%6d%2c%2c%08%0a%7c%0f%02%24%26%27%27%67%69%68%60%25%3d%27%20%53%4a%69%27%49%68%65%60%58%27%0d%0d%7f%28%24%26%27%0a%03%28%25%67%71%6e%29%63%6c%60%43%71%62%67%7c%49%6c%76%74%62%6c%6d%76%2e%25%64%65%61%66%6e%27%2c%27%71%6b%76%69%6b%6b%20%33%08%0f%25%20%61%77%66%67%72%6e%68%67%28%76%66%77%6f%6b%6e%20%2d%7d%0a%0d%29%28%72%6c%6b%64%68%75%26%77%65%75%68%65%64%51%6a%2d%30%2b%22%31%3d%3f%3e%3e%30%31%3c%3c%3c%39%2e%39%75%09%0c%27%27%29%28%76%60%71%54%6e%6f%6d%6b%73%73%2f%6a%64%60%64%77%2c%27%33%38%34%2f%0a%0d%29%28%25%25%76%65%73%56%61%69%63%68%72%7d%20%76%66%77%6f%6b%6e%24%24%37%37%37%20%05%0f%25%25%20%27%0f%02%24%26%0a%0d%29%28%25%25%25%20%27%22%7e%65%74%27%6a%6c%7b%76%64%62%65%27%3f%28%60%69%64%72%64%6d%6b%71%2b%67%62%76%4d%68%63%6a%62%67%7c%47%7c%4c%64%2f%20%61%6a%76%72%73%3b%2a%2c%2b%73%61%6b%77%6d%3f%0b%0d%27%29%28%25%08%0f%20%0a%08%28%24%26%27%0a%03%28%25%25%25%20%27%22%28%62%6f%75%62%6b%69%76%60%2b%64%66%76%69%66%67%74%62%21%21%2b%77%60%66%2f%20%65%61%75%74%66%6e%6d%61%27%2c%2e%77%77%7b%6c%2e%2e%29%7a%6d%71%2d%7e%0d%0d%22%28%24%26%27%27%29%28%25%25%25%20%25%71%6d%6a%62%62%75%2b%32%25%6b%64%6d%62%2e%05%0e%26%27%27%29%28%25%25%25%20%27%22%28%26%6b%62%74%7a%69%62%60%27%3a%27%6f%6d%77%75%66%60%6c%05%0f%25%25%20%27%22%28%24%26%7a%2e%32%05%0f%25%08%0a%0a%08%28%24%26%27%27%29%28%25%77%60%74%72%70%66%24%60%66%6b%7a%6d%3e%08%0f%20%27%22%28%24%26%27%27%04%02%25%25%25%20%7a%7f%28%24%26%27%0a%03%05%0f%63%70%6e%64%76%61%6b%68%27%63%6c%64%2d%2c%7e%0d%0d%75%61%6a%62%68%70%27%67%6b%69%6a%61%63%22%35%62%6f%75%62%6b%69%76%60%2b%64%66%70%69%66%67%74%62%27%7a%60%63%2d%22%6a%67%7b%77%67%60%62%6d%2a%2c%2b%77%65%6a%6d%7e%61%2e%2e%3c%04%02%08%0f%78%20%27%22%28%09%0c%27%27%29%28%08%0f%25%20%27%22%05%0e%26%27%27%29%6e%70%6b%66%74%6e%6d%66%24%65%6b%62%68%7a%2d%2c%7e%0d%0d%22%28%24%26%27%27%29%28%61%6a%66%75%6a%67%66%70%28%60%62%7d%4d%69%60%68%65%69%76%4a%7d%4f%63%2f%2b%61%6b%75%70%74%35%20%21%2a%70%66%6b%7c%6d%25%38%27%22%3c%0f%02%24%26%27%27%74%05%0f%25%25%20%27%0f%02%24%26%27%27%04%02%25%25%25%20%0a%08%28%24%26%27%0a%03%05%0f%25%63%69%75%67%6a%65%75%62%29%6d%69%71%64%67%61%74%67%20%2d%28%75%62%6f%20%27%68%60%73%74%63%6f%61%62%25%2e%27%67%6b%2d%27%63%6f%6b%64%60%59%66%63%6d%6d%61%27%29%20%61%77%66%67%72%6e%68%67%28%2d%76%6b%61%77%71%60%6b%72%2e%27%72%05%0f%25%25%0d%0d%0f%02%09%0c%0a%0d%29%7e%64%77%25%68%73%6f%64%24%3b%27%25%2b%33%08%0f%25%20%27%22%28%24%26%27%0a%03%28%25%25%25%20%27%22%28%09%0c%27%27%29%28%25%25%25%20%6e%64%28%2c%75%69%66%79%7b%6d%6a%71%2e%71%63%64%2c%2f%29%74%6c%66%61%60%77%20%3a%3f%28%6a%67%6a%62%20%28%7e%08%0f%20%27%22%28%24%26%27%27%65%6d%71%25%68%73%60%3f%28%60%69%64%72%64%6d%6b%71%2b%63%75%67%69%70%63%42%6b%6c%65%60%6b%71%28%25%66%61%72%24%2e%0a%03%28%25%25%25%20%27%22%28%68%63%73%27%6c%64%38%25%61%6f%64%77%65%61%68%73%29%6a%7a%60%64%71%65%42%6e%6d%69%63%69%73%21%2a%61%6c%73%22%2e%0f%02%24%26%27%27%29%28%25%2a%2a%20%6b%67%7c%24%75%27%3a%29%6c%6a%66%70%6d%62%6c%7c%2a%65%75%62%68%7c%60%40%69%65%6a%67%66%70%2e%25%74%79%69%6b%27%2c%0d%0d%22%28%24%26%27%27%29%28%60%69%2b%69%63%3f%2a%69%63%74%74%68%6f%60%27%08%0a%27%22%28%24%26%28%28%29%28%25%76%2b%63%6b%63%7b%77%48%66%6a%6c%35%27%76%60%6e%63%67%7a%26%0b%0d%27%29%28%25%25%25%20%27%67%64%2a%65%6b%66%7a%7b%4b%64%68%65%3a%20%6e%62%6b%74%60%3a%2a%08%0f%08%0a%28%2d%7b%2a%6f%69%69%6c%7a%51%60%7d%74%3a%71%66%65%76%74%6f%66%7c%2b%73%64%6c%2f%2b%26%77%63%69%63%6c%7a%08%0f%68%73%60%2c%61%6a%68%62%75%5d%6d%7d%71%38%73%69%63%78%77%6e%68%73%27%7e%64%69%2d%29%29%6f%6d%77%75%66%60%6c%05%0f%61%6a%63%72%6f%6d%6a%72%29%60%6c%7c%40%69%60%6d%62%6c%7c%46%7f%4e%63%21%2a%68%60%76%73%66%65%6d%60%24%2e%29%68%78%75%60%6b%64%44%6a%61%68%62%2f%62%65%21%3e%08%0f%2f%28%67%64%2a%67%77%77%6c%66%61%46%6d%69%6b%66%20%77%2f%3c%0a%03%6d%69%2b%64%70%77%67%66%60%45%6f%6e%65%6c%2d%68%76%67%2e%39%05%0e%26%27%27%29%28%25%25%25%7d%0a%08%28%24%26%27%27%29%28%25%08%0f%20%27%22%28%24%26%27%27%04%02%25%25%25%20%27%22%28%24%0b%0d%27%29%28%25%25%25%20%27%67%64%77%63%7c%0a%03%28%25%25%25%20%27%22%28%09%0c%27%27%29%28%25%25%69%65%73%22%65%77%61%3a%27%6d%67%66%70%68%65%69%76%26%67%74%62%66%7d%6d%40%69%60%6d%62%6c%7c%2c%24%63%6e%7f%2a%2c%08%0f%20%27%22%28%24%26%27%27%65%6d%71%25%60%6c%3a%22%6c%6b%65%72%6a%6c%66%71%2b%66%72%62%63%7c%61%43%6b%62%64%6d%6b%71%2d%22%63%6b%7e%26%2f%0a%0d%29%28%25%25%25%20%27%22%64%61%72%27%74%29%35%25%61%6a%63%72%6f%6d%6a%72%29%64%7b%6d%64%71%60%45%6b%67%65%61%68%73%2f%2b%7b%75%64%6b%22%2e%0f%02%24%26%27%27%29%28%25%25%60%6c%29%6b%6c%39%24%6a%62%7a%7b%64%62%60%22%0a%08%28%24%26%27%27%29%28%25%76%2b%63%6b%63%7b%77%48%66%6a%6c%35%27%76%60%6e%63%67%7a%26%0b%0d%27%29%28%25%25%25%20%27%67%64%2a%65%6b%66%7a%7b%4b%64%68%65%3a%20%6e%62%6b%74%60%2b%05%0f%08%0f%73%29%6b%66%6a%63%75%53%6c%70%71%38%76%6e%66%72%7b%6c%69%73%29%7f%69%69%2d%2c%2e%74%67%66%60%63%75%0a%03%65%76%62%2b%69%69%6c%6d%76%52%62%7f%7d%35%76%6b%64%70%74%6a%67%70%28%71%66%65%20%2c%2b%68%65%74%71%69%63%63%0a%0d%6d%67%66%70%68%65%69%76%26%63%63%73%42%65%6d%68%60%6b%74%45%7b%41%60%2e%25%6a%6c%7b%76%64%62%65%63%20%21%2a%67%77%77%6c%66%61%46%6d%69%6b%66%20%61%6a%2e%3c%04%02%60%69%2b%61%77%72%6d%6a%62%44%6f%60%64%61%2d%76%29%3c%0f%02%61%6a%29%66%79%78%60%6b%61%43%6f%6b%64%60%2e%6a%74%6e%21%3e%08%0f%7d%27%22%28%24%7b%2e%3c%04%02%2a%2a%72%69%69%66%67%73%28%68%69%65%67%64%61%38%75%74%67%7a%77%2e%2e%0a%03%05%0f%63%70%6e%64%76%61%6b%68%27%6b%60%7b%71%66%69%28%2e%0f%02%7f%0b%0d%27%29%28%25%61%6a%63%72%6f%6d%6a%72%29%60%6c%7c%40%69%60%6d%62%6c%7c%46%7f%4e%63%21%2a%69%6c%76%74%25%2b%26%77%72%7e%6b%6c%26%6a%75%64%63%6e%76%71%39%24%37%25%04%02%25%25%25%20%63%6d%6b%71%6b%62%69%7d%26%62%60%71%45%6b%67%65%61%68%73%45%70%41%61%2d%27%6c%6e%71%7c%26%2f%29%74%7d%71%69%60%2b%74%75%63%66%77%6f%73%6e%66%66%38%27%35%2e%32%71%2a%09%0c%27%27%29%28%76%60%71%54%6e%6f%6d%6b%73%73%2f%6d%6d%69%64%7c%65%63%2e%28%35%36%37%37%20%05%0f%25%25%20%27%0f%02%79%0b%0d%61%7c%66%66%71%6c%6f%69%22%6c%61%6a%66%7e%6c%6c%2d%2c%7e%0d%0d%22%28%24%26%63%68%6a%7d%68%60%6b%74%29%65%6d%70%43%6b%62%64%6d%6b%71%47%79%4e%66%20%26%6a%6e%74%7d%2a%2c%2b%76%74%7e%6e%6d%39%24%63%6e%7a%78%69%64%7c%3a%69%6d%66%61%3d%25%0a%03%75%08%0f%25%66%72%6c%6b%70%6f%68%69%29%7d%76%60%77%73%2f%2b%05%0e%7d%0a%0d%6d%67%66%70%68%65%69%76%26%63%63%73%42%65%6d%68%60%6b%74%45%7b%41%60%2e%25%6b%60%7b%71%27%2c%2e%74%76%71%68%63%29%63%60%7b%75%69%64%79%3a%20%6e%68%63%7f%25%04%02%25%25%25%20%74%67%7c%50%6f%6a%62%66%7d%71%2d%69%69%74%76%24%24%37%37%37%20%05%0f%25%25%20%27%64%7d%6a%65%73%6e%66%66%25%69%6c%73%73%2a%21%09%0c%0a%0d%72%05%0f%61%6a%63%72%6f%6d%6a%72%29%60%6c%7c%40%69%60%6d%62%6c%7c%46%7f%4e%63%21%2a%69%6c%76%74%25%2b%26%77%72%7e%6b%6c%26%6a%75%64%63%6e%76%71%39%24%36%25%04%02%25%25%25%20%63%6d%6b%71%6b%62%69%7d%26%62%60%71%45%6b%67%65%61%68%73%45%70%41%61%2d%27%6c%6e%71%7c%26%2f%29%74%7d%71%69%60%2b%74%75%63%66%77%6f%73%6e%66%66%38%27%35%2e%32%71%2a%09%0c%27%27%29%28%08%0f%25%20%27%22%75%09%0c%27%27%29%28%08%0f%25%20%27%22%27%2b%65%68%69%7a%67%69%60%2b%6c%68%65%20%26%4a%6e%74%7d%28%6a%63%25%74%6f%67%28%71%75%62%75%7a%32%59%6b%27%29%0a%08%6e%6d%74%62%65%68%7b%60%2b%61%61%73%63%6a%65%75%62%2f%20%26%77%60%63%28%25%6f%6d%77%75%66%60%6c%6c%27%2c%2b%6f%69%2a%2a%67%6e%6e%6b%6d%57%64%61%61%65%63%20%24%24%60%72%69%6a%7c%6c%6a%6b%20%2f%71%66%65%76%74%6f%66%7c%2c%25%7e%0d%0d%74%69%76%26%69%68%29%35%35%3e%08%0a%69%6d%23%2f%3d%0a%0d%04%02%25%25%25%20%28%2d%6b%6b%68%74%68%65%6d%2b%69%6a%67%2f%20%5d%77%63%75%3d%29%2a%2e%76%6b%61%77%71%60%6b%72%29%71%68%64%2d%2c%2b%73%62%6c%6c%61%74%2c%25%32%2a%2c%08%0f%20%27%22%28%60%69%64%72%64%6d%6b%71%2b%67%62%76%4d%68%63%6a%62%67%7c%47%7c%4c%64%2f%20%7d%68%24%2e%29%60%66%6b%60%77%48%53%4f%44%2f%3b%67%3b%65%61%3b%21%7e%73%69%63%78%77%6e%68%73%27%7e%64%69%2d%29%29%71%6d%6a%62%62%75%74%34%2a%69%6c%3e%67%39%05%0e%26%27%27%29%05%0f%25%25%20%27%0f%02%24%26%27%27%04%02%25%25%25%20%7a%2b%05%0e%26%27%27%29%27%2a%66%6a%6e%74%6d%64%61%28%6b%68%6e%20%27%59%6b%e2%9d%a2%e7%bc%89%27%42%47%4c%25%e7%9f%a0%e8%ba%87%26%2f%0a%0d%74%05%0f%08%0f%66%72%6c%6b%70%6f%68%69%29%6d%7d%6c%71%32%2f%2b%73%09%0c%27%27%29%28%61%6a%66%75%6a%67%66%70%28%60%62%7d%4d%69%60%68%65%69%76%4a%7d%4f%63%2f%2b%6d%7d%6c%71%2d%77%63%6f%61%24%2e%29%7a%7c%7c%69%60%2e%68%72%69%67%6f%73%7e%34%2a%34%27%08%0a%27%22%28%24%62%68%64%7c%65%60%6b%71%2e%60%67%7c%41%6a%62%6a%6c%66%71%47%7c%49%63%2a%2a%61%7e%6e%73%24%78%64%62%60%22%2e%2c%7b%70%7f%6b%62%27%7c%77%64%6b%73%6e%76%61%6b%68%3a%25%39%26%30%76%27%0d%0d%22%28%24%26%0a%0d%74%05%0f%63%70%6e%64%76%61%6b%68%27%62%71%61%71%2d%2c%7b%0a%08%28%24%26%27%63%66%6b%70%68%60%6e%73%2c%6f%61%72%42%6b%6c%65%60%6b%71%42%7e%4b%6c%2c%24%62%7f%60%7c%28%75%64%67%62%20%21%2a%75%73%7e%65%6d%2b%61%6c%73%77%6e%69%7d%3b%25%61%65%6d%7d%27%08%0a%27%22%28%24%75%62%73%5d%61%68%60%6a%75%73%2a%6d%7c%6f%73%35%25%28%34%35%35%29%0a%08%75%09%0c%0a%0d%6f%7d%6b%66%71%69%68%6c%28%68%69%60%68%7c%7c%2d%2c%7e%0d%0d%22%28%24%26%66%6b%6c%7a%71%2d%27%2e%29%2c%54%6a%5a%69%4d%7c%7b%71%25%66%6c%68%71%6d%24%72%6f%62%29%6b%6a%61%60%20%3d%46%2a%2d%0b%0d%7a%04%02%08%0f%39%2f%74%61%7a%6d%76%73%3920905993%34%36%37%37%39%38%35' + unescape('%27%29%29%3b'));
+// -->
+</script>
+
+
+
+
+ 
+    </body>
+</html>
